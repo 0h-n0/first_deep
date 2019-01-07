@@ -104,3 +104,4 @@ venv.bak/
 .mypy_cache/
 *~
 \#*
+cifar-100-python.tar.gz
