@@ -91,9 +91,12 @@ class Preprocess(object):
 
 
 class Trainer(object):
-    def __init__(self, data_loader,):
+    def __init__(self, model, train_loader, test_loader):
         pass
 
+    def __main__(self):
+        pass
+    
 def train():
     pass
 
@@ -107,6 +110,5 @@ def main():
 
 
 if __name__ == '__main__':
-    
     p = Preprocess()
     main()
