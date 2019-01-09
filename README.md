@@ -1,9 +1,11 @@
 # first_deep
-This repository First se
+
+This repogitory provides a first step for learning Deep Learning method and mainly treats Cifar-100 Dataset which is a little hard to train a deep neural net model.
 
 ## requirements
 
 * pytorch >= 1.0.0
+* torchex >= 0.0.4
 
 ## Setup
 

@@ -9,7 +9,23 @@ import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
 from torchvision import datasets, transforms
+import torchex.nn as exnn
 
+
+class FC(nn.Module):
+    def __init__(self):
+        super(FC, self).__init__()
+        self.net = nn.Sequential(
+            exnn.Flatten(),
+            exnn.Linear(500),
+            nn.ReLU(),
+            exnn.Linear(10),
+            nn.ReLU(),            
+            nn.Linear(10, 10))
+
+    def forward(self, x):
+        x = self.net(x)
+        return F.log_softmax(x, dim=1)
 
 class Net(nn.Module):
     def __init__(self):
@@ -106,7 +122,8 @@ def main():
         batch_size=args.test_batch_size, shuffle=True, **kwargs)
 
 
-    model = Net().to(device)
+    #model = Net().to(device)
+    model = FC().to(device)    
     optimizer = optim.SGD(model.parameters(), lr=args.lr, momentum=args.momentum)
 
     for epoch in range(1, args.epochs + 1):
